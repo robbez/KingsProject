@@ -15,7 +15,7 @@ public class Violation {
         violationDate = new Date();
     }
 
-    public Violation(String type, String description, String vDate, 
+    public Violation(ViolationType type, String description, String vDate, 
     		String location) {
         violationType = type;
         violationDescription = description;

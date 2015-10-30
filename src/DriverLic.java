@@ -1,6 +1,3 @@
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 
 /*
@@ -39,8 +36,23 @@ public class DriverLic  extends Individual {
             return retVal + "Violations: " + buffer.toString();
         }
         
-        public boolean addViolation() {
+        public boolean addViolation(Violation violation) {
+        	driverOffenses.add(violation);
+        	violationCounter[violation.getViolationType().ordinal()]++;
         	
+        	return canKeepLicense();
+        }
+        
+        private boolean canKeepLicense() {
+        	for(int i = 0; i < violationCounter.length; i++)
+        	{
+        		if(violationCounter[i] > MAX_ALLOWED_VIOLATIONS_PER_TYPE[i])
+        		{
+        			return false;
+        		}
+        	}
+        	
+        	return true;
         }
 
     }
