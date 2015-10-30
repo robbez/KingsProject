@@ -1,7 +1,7 @@
-/*
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -13,65 +13,34 @@ import java.io.IOException;
  *
  * @author kings90
  */
-/*public class DriverLic  extends Individual {
+public class DriverLic  extends Individual {
 // methods must be added to this based on the line above
 
-        private String plateLetter;
-        private String plateNumber;
-        private String Name;
-        private String DateofBirth;
-        private int TotalViolations;
-        private int Violationcount;
+		private Date yearOfExpiration;
+		private final int[] MAX_ALLOWED_VIOLATIONS_PER_TYPE = {1, 3, Integer.MAX_VALUE};
+		private int[] violationCounter;
+		ArrayList<Violation> driverOffenses;
+		
 
-        public DriverLic() {
-            plateLetter = "";
-            plateNumber = "";
-            Name = "";
-            DateofBirth = "";
-            Violationcount = 0;
-        }
-
-        public DriverLic(String let, String num, String name, String D) {
-            setPlate(let, num, name, D);
-
+        public DriverLic(String fullName, String dateOfBirth, int licenseNum, int ssn, String expirationDate) {
+            super(fullName, dateOfBirth, licenseNum, ssn);
+            yearOfExpiration = new Date(expirationDate);
+            driverOffenses = new ArrayList<Violation>();
+            violationCounter = new int[]{0, 0, 0};
         }
 
         public String toString() {
 
-            return ("Plate number " + plateLetter + " " + plateNumber + " is a "
-                    + Name + " " + " plate that is " + DateofBirth + " in color.");
-
+            String retVal = super.toString() + "\nDate Of Expiration: " + yearOfExpiration.toString() + "\n";
+            StringBuilder buffer = new StringBuilder();
+            for (Violation i : driverOffenses) {
+				buffer.append(i.toString());
+			}
+            return retVal + "Violations: " + buffer.toString();
         }
-
-        public String equals() {
-
-            return DateofBirth;
-        }
-
-        public void setPlate(String let, String num, String state, String color) {
-            plateLetter = let;
-            plateNumber = num;
-            Name = state;
-            DateofBirth = color;
-
-        }
-
-        public String getPlateLetter(String let) {
-            return plateLetter;
-        }
-
-        public String getPlateNumber(String num) {
-            return plateNumber;
-        }
-
-        public String getPlateState(String state) {
-            return Name;
-        }
-
-        public String getPlateColor(String color) {
-            return DateofBirth;
+        
+        public boolean addViolation() {
+        	
         }
 
     }
-
-*/

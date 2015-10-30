@@ -1,20 +1,26 @@
+import com.sun.javafx.scene.control.skin.FXVK.Type;
+
 
 public class Violation {
 
     private ViolationType violationType;
     private String violationDescription;
     private Date violationDate;
+    private String violationLocation;
 
     public Violation() {
         violationType = ViolationType.MinorViolation;
         violationDescription = "";
+        violationLocation = "";
         violationDate = new Date();
     }
 
-    public Violation(ViolationType vt, String vd, Date vDate) {
-        violationType = vt;
-        violationDescription = vd;
-        violationDate = vDate;
+    public Violation(String type, String description, String vDate, 
+    		String location) {
+        violationType = type;
+        violationDescription = description;
+        violationDate = new Date(vDate);
+        violationLocation = location;
     }
 
     public ViolationType getViolationType() {
@@ -28,17 +34,18 @@ public class Violation {
     public Date getViolationDate() {
         return violationDate;
     }
+    
+    public String getViolationLocation() {
+    	return violationLocation;
+    }
 
     public String toString() {
-        ViolationType licStr = violationType;
-        String namStr = violationDescription;
-        Date strStr = violationDate;
-
-        String allStr = "Violation Type: " + licStr.toString()
-                + " \nViolation Description: " + namStr
-                + " \n Violation Date: " + strStr;
-        return allStr;
+        return "Violation Type: " + violationType.toString()
+                + "\nViolation Description: " + violationDescription
+                + "\nViolation Date: " + violationDate.toString()
+                + "\nViolation Location" + violationLocation;
     }
+
 
 //    public static void main( String[] args )
 //    {

@@ -12,15 +12,15 @@
 // 00918825   7   7 1944    2015  98-86-81684 James  Ayla M
 public class Individual {
 
-    protected final String Name;
-    protected final Date DateOfBirth;
-    protected final int SocialSecurityNumber;
-    protected String LicenseNumber;
+    private final String Name;
+    private final Date DateOfBirth;
+    private final int SocialSecurityNumber;
+    private final int LicenseNumber;
 
-    public Individual(String fullName, String dateOfBirth, String licenceNum, int ssn) {
+    public Individual(String fullName, String dateOfBirth, int licenseNum, int ssn) {
         this.Name = fullName;
         this.DateOfBirth = new Date(dateOfBirth);
-        this.LicenseNumber = licenceNum;
+        this.LicenseNumber = licenseNum;
         this.SocialSecurityNumber = ssn;
     }
 
@@ -32,7 +32,7 @@ public class Individual {
         return new Date();
     }
 
-    public String getLicenseNumber() {
+    public int getLicenseNumber() {
         return LicenseNumber;
     }
 
