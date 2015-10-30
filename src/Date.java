@@ -106,4 +106,9 @@ public class Date implements Comparable<Date> {
 
 		return result;
 	}
+	
+	@Override
+	public String toString() {
+		return String.format("%i/%i/%i", month, day, year);
+	}
 }
