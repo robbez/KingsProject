@@ -20,6 +20,8 @@ public class Date implements Comparable<Date> {
 	private int day;
 	private int month;
 	private int year;
+	
+	private boolean isValidDate;
 
 	public Date() {
 		initDate();
@@ -29,9 +31,15 @@ public class Date implements Comparable<Date> {
 		try {
 			validate(dateStr);
 			convert(dateStr);
+			this.isValidDate = true;
 		} catch (ParseException e) {
 			initDate();
+			this.isValidDate = false;
 		}
+	}
+
+	public boolean isValidDate() {
+		return isValidDate;
 	}
 
 	protected void initDate() {
@@ -72,6 +80,18 @@ public class Date implements Comparable<Date> {
 		}
 	}
 
+	public int getDay() {
+		return day;
+	}
+
+	public int getMonth() {
+		return month;
+	}
+
+	public int getYear() {
+		return year;
+	}
+
 	protected void convert(String dateStr) {
 		StringTokenizer st = new StringTokenizer(dateStr, "/");
 		month = Integer.parseInt(st.nextToken());
@@ -109,6 +129,6 @@ public class Date implements Comparable<Date> {
 	
 	@Override
 	public String toString() {
-		return String.format("%i/%i/%i", month, day, year);
+		return String.format("%s/%s/%s", month, day, year);
 	}
 }

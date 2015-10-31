@@ -498,4 +498,3 @@
 00086268 1 8 1957 2019 98-60-59299 James  Jessica R
 00569713 7 2 1945 2016 98-03-30982 Evans  Ezra R
 00789073 4 10 1946 2025 98-73-53977 Martin  Nevaeh J
-http://www.java-forums.org/new-java/45451-printing-my-tostring-method.html

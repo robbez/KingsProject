@@ -15,11 +15,11 @@ public class Violation {
         violationDate = new Date();
     }
 
-    public Violation(ViolationType type, String description, String vDate, 
+    public Violation(ViolationType type, String description, Date vDate, 
     		String location) {
         violationType = type;
         violationDescription = description;
-        violationDate = new Date(vDate);
+        violationDate = vDate;
         violationLocation = location;
     }
 
@@ -46,27 +46,4 @@ public class Violation {
                 + "\nViolation Location" + violationLocation;
     }
 
-
-//    public static void main( String[] args )
-//    {
-//        Violation driver;
-//         
-//        System.out.println( "This is the main method" );
-//        for(int i = 0; i < 10; i++) {
-//        	try{
-//        		if (MajorViolation)
-//        	}
-//        		
-//       
-//        	
-//        }
-//         
-//        String lE = (JOptionPane.showInputDialog( "License number:" ));
-//        String nE = (JOptionPane.showInputDialog( "Name:" ));
-//        String sT = (JOptionPane.showInputDialog( "Street:" ));
-//         
-//        driver = new Violation( lE, nE, sT);
-//         
-//        System.out.println( driver.toString());
-//    }
 }

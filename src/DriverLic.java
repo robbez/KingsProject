@@ -19,11 +19,19 @@ public class DriverLic  extends Individual {
 		ArrayList<Violation> driverOffenses;
 		
 
-        public DriverLic(String fullName, String dateOfBirth, int licenseNum, int ssn, String expirationDate) {
+		public DriverLic(int licenseNum)
+		{
+			super(licenseNum);
+			this.yearOfExpiration = new Date();
+			this.violationCounter = null;
+			this.driverOffenses = null;
+		}
+		
+        public DriverLic(String fullName, Date dateOfBirth, int licenseNum, String ssn, Date expirationDate) {
             super(fullName, dateOfBirth, licenseNum, ssn);
-            yearOfExpiration = new Date(expirationDate);
-            driverOffenses = new ArrayList<Violation>();
-            violationCounter = new int[]{0, 0, 0};
+            this.yearOfExpiration = expirationDate;
+            this.driverOffenses = new ArrayList<Violation>();
+            this.violationCounter = new int[]{0, 0, 0};
         }
 
         public String toString() {

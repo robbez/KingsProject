@@ -1,0 +1,20 @@
+2 99999999
+   Ellensburg 
+   speeding
+   7 2 2015 
+0 00569713
+   Kent 
+   Parking Ticket
+   7 2 2013
+2 00789073
+  Yakima
+  Not yielding
+  3  3 2014
+1 00917792
+  Tacoma
+  experied tabs
+  10 30 2015
+0 00906188
+   Wala Wala
+   reckless Driving
+   2 14 2015

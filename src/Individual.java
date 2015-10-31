@@ -10,16 +10,24 @@
  */
 // licenseNo DATE OF  DB     EX     SSN        NAMES FLM
 // 00918825   7   7 1944    2015  98-86-81684 James  Ayla M
-public class Individual {
+public class Individual implements Comparable<Individual> {
 
     private final String Name;
     private final Date DateOfBirth;
-    private final int SocialSecurityNumber;
+    private final String SocialSecurityNumber;
     private final int LicenseNumber;
 
-    public Individual(String fullName, String dateOfBirth, int licenseNum, int ssn) {
+    public Individual(int licenseNum)
+    {
+    	this.LicenseNumber = licenseNum;
+    	this.Name = "N/A";
+    	this.SocialSecurityNumber = "N/A";
+    	this.DateOfBirth = new Date();
+    }
+    
+    public Individual(String fullName, Date dateOfBirth, int licenseNum, String ssn) {
         this.Name = fullName;
-        this.DateOfBirth = new Date(dateOfBirth);
+        this.DateOfBirth = dateOfBirth;
         this.LicenseNumber = licenseNum;
         this.SocialSecurityNumber = ssn;
     }
@@ -36,7 +44,7 @@ public class Individual {
         return LicenseNumber;
     }
 
-    public int getSocialSecurityNumber() {
+    public String getSocialSecurityNumber() {
         return SocialSecurityNumber;
     }
 
@@ -45,4 +53,11 @@ public class Individual {
         result = "Name: " + Name + "birthdate " + DateOfBirth + " License: " + LicenseNumber;
         return result;
     }
+
+	@Override
+	public int compareTo(Individual other) {
+		if(this.LicenseNumber < other.LicenseNumber) return -1;
+		if(this.LicenseNumber > other.LicenseNumber) return 1;
+		return 0;
+	}
 }
